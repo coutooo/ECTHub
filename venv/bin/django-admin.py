@@ -1,4 +1,4 @@
-#!/home/danielcorreia/Data/Universidade/IHC/ECTHub/venv/bin/python
+#!/home/couto/Desktop/Universidade/ihc/ECTHub/venv/bin/python3
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

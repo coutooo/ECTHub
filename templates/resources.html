@@ -2,5 +2,10 @@
 
 {% block content %}
         <h1>Resources</h1>
-        <p>rumo ao 20</p>
+        <h2>Upload</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="document">
+            <button type="submit">Upload File</button>
+        </form>
 {% endblock %} 

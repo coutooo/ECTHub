@@ -1,6 +1,9 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.files.storage import FileSystemStorage
+
+from .forms import FichForm
+from .models import Ficheiros
 
 # Create your views here.
 def home_view(request, *args, **kwargs):
@@ -10,11 +13,21 @@ def home_view(request, *args, **kwargs):
 def calendar_view(request, *args, ** kwargs):
     return render(request, "calendar.html",{})
 
-def resources_view(request, *args, ** kwargs):
+def files_list(request):
+    files = Ficheiros.objects.all()
+    print(files)
+    return render(request,'files_list.html',{
+        'files' : files
+    })
+
+def upload_file(request):
     if request.method == 'POST':
-        uploaded_file = request.FILES['document']
-        print(uploaded_file.name)
-        print(uploaded_file.size)
-        fs = FileSystemStorage()
-        fs.save(uploaded_file.name,uploaded_file)
-    return render(request,"resources.html",{})
+        form = FichForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('files_list')
+    else:        
+        form = FichForm()
+    return render(request,"upload_file.html",{
+        'form': form
+    })

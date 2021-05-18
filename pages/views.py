@@ -7,7 +7,6 @@ from .models import Ficheiros
 
 # Create your views here.
 def home_view(request, *args, **kwargs):
-    print(request.user)
     return render(request, "home.html",{})
 
 def calendar_view(request, *args, ** kwargs):
@@ -15,7 +14,6 @@ def calendar_view(request, *args, ** kwargs):
 
 def files_list(request):
     files = Ficheiros.objects.all()
-    print(files)
     return render(request,'files_list.html',{
         'files' : files
     })

@@ -8,3 +8,6 @@ def home_view(request, *args, **kwargs):
 
 def calendar_view(request, *args, ** kwargs):
     return render(request, "calendar.html",{})
+
+def resources_view(request, *args, ** kwargs):
+    return render(request,"resources.html",{})

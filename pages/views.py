@@ -12,6 +12,21 @@ def home_view(request, *args, **kwargs):
 def calendar_view(request, *args, ** kwargs):
     return render(request, "calendar.html",{})
 
+def subjects1(request, *args, ** kwargs):
+    return render(request, "subjects1.html",{})
+
+def subjects2(request, *args, ** kwargs):
+    return render(request, "subjects2.html",{})
+
+def subjects3(request, *args, ** kwargs):
+    return render(request, "subjects3.html",{})
+
+def subjects4(request, *args, ** kwargs):
+    return render(request, "subjects4.html",{})
+
+def subjects5(request, *args, ** kwargs):
+    return render(request, "subjects5.html",{})
+
 def files_list(request):
     files = Ficheiros.objects.all()
     return render(request,'files_list.html',{

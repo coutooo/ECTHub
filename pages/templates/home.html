@@ -1,17 +1,45 @@
 {% extends 'base.html' %}
 
-{% load static %}<!doctype html>
-<head>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
+{% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
-        <div class="card">
-          <img src="img_avatar.png" alt="Avatar" style="width:100%">
-          <div class="container">
-            <h4><b>John Doe</b></h4>
-            <p>Architect & Engineer</p>
-          </div>
+{% load static %}
+
+  <div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        
+        {% load static %}
+        <img src="{% static 'images/virtual.png' %}">
+        <div class="container">
+          <h4 class="card-title"><b>Bases de Dados</b></h4>
+          <p>Architect & Engineer</p>
         </div>
-              
-{% endblock %} 
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        {% load static %}
+        <img src="{% static 'images/virtual.png' %}">
+        <div class="container">
+          <h4 class="card-title"><b>Interação Humano-Computador</b></h4>
+          <p>Architect & Engineer</p>
+        </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        {% load static %}
+        <img src="{% static 'images/virtual.png' %}">
+        <div class="container">
+          <h4 class="card-title"><b>Arquitetura de Redes</b></h4>
+          <p>Architect & Engineer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}
+

@@ -5,5 +5,5 @@ from .models import Ficheiros
 class FichForm(forms.ModelForm):
     class Meta:
         model = Ficheiros
-        fields = ('title','author','resources')
+        fields = ('title','author','subject','resources')
 

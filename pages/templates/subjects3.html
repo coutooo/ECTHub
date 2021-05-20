@@ -4,41 +4,22 @@
 <body>
 
     <h1>1º Semestre</h1>
-    <label class="container">SISTEMAS DE OPERAÇÃO
-        <input type="checkbox">
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">ANÁLISE E MODELAÇÃO DE SISTEMAS
-        <input type="checkbox">
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">FUNDAMENTOS DE REDES
-        <input type="checkbox">
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">INTRODUÇÃO À INTELIGÊNCIA ARTIFICIAL
-        <input type="checkbox">
-        <span class="checkmark"></span>
-    </label>
+    {% for id, name in first_sem.items %}
+        <label class="container">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            <a href="/resources?sub={{ id }}" style="text-decoration : none; color : #000000;">{{ name }}</a>
+        </label>
+    {% endfor %}
     
     <h1>2º Semestre</h1>
-    <label class="container">
-        <input type="checkbox">
-        <span class="checkmark"></span>
-        <a href="/files" style="text-decoration : none; color : #000000;">INTERAÇÃO HUMANO-COMPUTADOR</a>
-    </label>
-    <label class="container">BASES DE DADOS
-        <input type="checkbox">
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">ARQUITECTURA DE REDES
-        <input type="checkbox">
-        <span class="checkmark"></span>
-    </label>
-    <label class="container">PROJECTO EM ENGENHARIA INFORMÁTICA
-        <input type="checkbox">
-        <span class="checkmark"></span>
-    </label>
+    {% for id, name in second_sem.items %}
+        <label class="container">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            <a href="/resources?sub={{ id }}" style="text-decoration : none; color : #000000;">{{ name }}</a>
+        </label>
+    {% endfor %}
 
 </body>
 {% endblock %}

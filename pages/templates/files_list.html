@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
- <h2>Resources</h2>
- <h2>1 ano</h2>
-
- <p>
-     <a href="{% url 'upload_file' %}" class="btn btn-primary">Upload File</a>
- </p>
  <table class="table">
     <thead>
         <tr>
+            <th>Subject</th>
             <th>Title</th>
             <th>Author</th>
             <th>Download</th>
         </tr>
     </thead>
     <tbody>
+        <h1>{{ sub }}</h1>
+        <p>
+            <a href="{% url 'upload_file' %}" class="btn btn-primary">Upload File</a>
+        </p>
         {% for file in files %}
         <tr>
+            <td>{{ file.subject }}</td>
             <td>{{ file.title }}</td>
             <td>{{ file.author }}</td>
             <td>

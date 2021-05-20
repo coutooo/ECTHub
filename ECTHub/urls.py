@@ -19,19 +19,15 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from pages.views import files_list, home_view,calendar_view, subjects1, subjects2, upload_file,subjects3,subjects4,subjects5
+from pages.views import *
 
 urlpatterns = [
     path('', home_view, name = 'home'),
     path('calendar/', calendar_view),
     path('admin/', admin.site.urls),
-    path('files/', files_list, name='files_list'),
-    path('files/upload',upload_file, name='upload_file'),
-    path('year1/',subjects1, name = 'subjects1'),
-    path('year2/',subjects2, name = 'subjects2'),
-    path('year3/',subjects3, name = 'subjects3'),
-    path('year4/',subjects4, name = 'subjects4'),
-    path('year5/',subjects5, name = 'subjects5'),
+    path('resources/', resources_list, name='files_list'),
+    path('resources/upload',upload_file, name='upload_file'),
+    path('years/',subjects, name = 'subjects'),
 ]
 
 if settings.DEBUG:

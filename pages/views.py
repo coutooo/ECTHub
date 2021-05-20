@@ -104,7 +104,7 @@ def resources_list(request):
 
     id = request.GET['sub']
 
-    return render(request,'files_list.html',{
+    return render(request,"files_list.html",{
         'id' : id,
         'sub' : getName(id),
         'files' : files

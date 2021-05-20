@@ -102,13 +102,16 @@ def subjects(request, *args, ** kwargs):
 def resources_list(request):
     files = Ficheiros.objects.all()
 
+    id = request.GET['sub']
 
     return render(request,'files_list.html',{
-        'sub' : getName(request.GET['sub']),
+        'id' : id,
+        'sub' : getName(id),
         'files' : files
     })
 
 def upload_file(request):
+
     if request.method == 'POST':
         form = FichForm(request.POST, request.FILES)
         if form.is_valid():

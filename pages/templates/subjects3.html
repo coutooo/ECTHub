@@ -2,24 +2,31 @@
 {% block content %}
 
 <body>
-
-    <h1>1º Semestre</h1>
-    {% for id, name in first_sem.items %}
-        <label class="container">
-            <input type="checkbox">
-            <span class="checkmark"></span>
-            <a href="/resources?sub={{ id }}" style="text-decoration : none; color : #000000;">{{ name }}</a>
-        </label>
-    {% endfor %}
-    
-    <h1>2º Semestre</h1>
-    {% for id, name in second_sem.items %}
-        <label class="container">
-            <input type="checkbox">
-            <span class="checkmark"></span>
-            <a href="/resources?sub={{ id }}" style="text-decoration : none; color : #000000;">{{ name }}</a>
-        </label>
-    {% endfor %}
-
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <h1 class="card-title">1º Semestre</h1>
+                {% for id, name in first_sem.items %}
+                    <div class="card-body">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        <a href="/resources?sub={{ id }}" style="text-decoration : none; color : #000000;">{{ name }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <h1 class="card-title">2º Semestre</h1>
+                {% for id, name in second_sem.items %}
+                    <label class="container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        <a href="/resources?sub={{ id }}" style="text-decoration : none; color : #000000;">{{ name }}</a>
+                    </label>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </body>
 {% endblock %}

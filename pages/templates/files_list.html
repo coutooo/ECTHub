@@ -13,7 +13,7 @@
     <tbody>
         <h1>{{ sub }}</h1>
         <p>
-            <a href="{% url 'upload_file' %}" class="btn btn-primary">Upload File</a>
+            <a href="upload?sub={{ id }} " class="btn btn-primary">Upload File</a>
         </p>
         {% for file in files %}
         <tr>

@@ -2,8 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.core.files.storage import FileSystemStorage
 
-from .forms import FichForm
-from .models import Ficheiros
+from .forms import *
+from .models import *
 
 subs = {
     "ano1" : {
@@ -83,7 +83,7 @@ def getName(id):
 # Create your views here.
 def home_view(request, *args, **kwargs):
     return render(request, "home.html",{})
-
+    
 def calendar_view(request, *args, ** kwargs):
     return render(request, "calendar.html",{})
 
@@ -111,7 +111,6 @@ def resources_list(request):
     })
 
 def upload_file(request):
-
     if request.method == 'POST':
         form = FichForm(request.POST, request.FILES)
         if form.is_valid():

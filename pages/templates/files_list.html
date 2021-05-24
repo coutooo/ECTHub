@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
- <table class="table">
-    <thead>
+ <table class="table" align="center">
+    <thead align="center">
         <tr>
             <th>Subject</th>
             <th>Title</th>
@@ -10,10 +10,10 @@
             <th>Download</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody align="center">
         <h1>{{ sub }}</h1>
-        <p>
-            <a href="upload?sub={{ id }} " class="btn btn-primary">Upload File</a>
+        <p class="multi-button">
+            <a href="upload?sub={{ id }} " class="btn btn-primary"><button>Upload File</button></a>
         </p>
         {% for file in files %}
         <tr>
@@ -22,8 +22,8 @@
             <td>{{ file.author }}</td>
             <td>
                 <a href="{{ file.resources.url }}" class="btn btn-primary btn-sm" target="_blank">
-                    Download File
-                  </a>
+                  <button>Download File</button>
+                </a>
             </td>
         </tr>
         {% endfor %}

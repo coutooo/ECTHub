@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="content-section">
+    <div class="content-section" style="display: grid; justify-content: center;margin-top: 100px;">
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">

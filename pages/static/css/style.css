@@ -7,6 +7,7 @@
   margin: 10px 10px 10px 10px;
 }
 
+
 .card-body {
   height: fit-content;
   width: fit-content;
@@ -15,6 +16,10 @@
 /* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(94, 92, 92);
+}
+
+.content-section{ 
+  text-align: center;
 }
 
 /* Add some padding inside the card container */
@@ -53,17 +58,17 @@
   left: 0;
   height: 25px;
   width: 25px;
-  background-color: #eee;
+  background-color: rgb(156, 156, 156);
 }
 
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
-  background-color: #ccc;
+  background-color: rgb(109, 107, 107);
 }
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color: #94015b;
+  background-color: #3e62d6;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -84,7 +89,7 @@
   top: 5px;
   width: 5px;
   height: 10px;
-  border: solid white;
+  border: solid rgb(255, 255, 255);
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);

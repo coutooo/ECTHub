@@ -14,7 +14,7 @@ body {
 
 .navbar {
   overflow: hidden;
-  background-color: rgb(94, 92, 92);
+  background-color: rgb(109, 107, 107);
 }
 
 .navbar a {
@@ -49,7 +49,7 @@ body {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 120px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
@@ -78,9 +78,7 @@ body {
   <a class="nav-item nav-link" href="{% url 'home' %}">ECT Hub</a>
   <a class="nav-item nav-link" href="/calendar">Calendar</a>
   <div class="dropdown">
-    <button class="dropbtn">Resources 
-      <i class="fa fa-caret-down"></i>
-    </button>
+    <button class="dropbtn">Resources<i class="fa fa-caret-down"></i></button>
     <div class="dropdown-content">
       <a href="/years?year=1">Year 1</a>
       <a href="/years?year=2">Year 2</a>

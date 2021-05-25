@@ -90,7 +90,7 @@ def calendar_view(request, *args, ** kwargs):
 def subjects(request, *args, ** kwargs):
     year = request.GET['year']
 
-    first = subs['ano'+year]['sem1']
+    first = subs['ano'+ year]['sem1']
     
     second = subs['ano'+year]['sem2']
     params = {"first_sem":first,
@@ -111,11 +111,15 @@ def resources_list(request):
     })
 
 def upload_file(request):
+    id = request.GET['sub']
+    print(id)
+
     if request.method == 'POST':
         form = FichForm(request.POST, request.FILES)
+        
         if form.is_valid():
             form.save()
-            return redirect('files_list')
+            return redirect('/resources/?sub='+id)
     else:        
         form = FichForm()
     return render(request,"upload_file.html",{

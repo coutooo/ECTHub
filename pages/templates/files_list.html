@@ -16,6 +16,7 @@
             <a href="upload?sub={{ id }} " class="btn btn-primary"><button>Upload File</button></a>
         </p>
         {% for file in files %}
+        {% if file.subject == sub %}
         <tr>
             <td>{{ file.subject }}</td>
             <td>{{ file.title }}</td>
@@ -26,6 +27,7 @@
                 </a>
             </td>
         </tr>
+        {% endif %}
         {% endfor %}
     </tbody>
  </table>

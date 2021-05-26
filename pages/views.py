@@ -112,16 +112,16 @@ def resources_list(request):
 
 def upload_file(request):
     id = request.GET['sub']
-    print(id)
 
     if request.method == 'POST':
         form = FichForm(request.POST, request.FILES)
-        
         if form.is_valid():
+            print(form.cleaned_data.get('subject'))
+            print(getName(id))
             form.save()
             return redirect('/resources/?sub='+id)
     else:        
-        form = FichForm()
+        form = FichForm(initial={'subject': getName(id)})
     return render(request,"upload_file.html",{
         'form': form
     })

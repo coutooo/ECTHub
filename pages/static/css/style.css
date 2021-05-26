@@ -5,12 +5,14 @@
   padding: 10px 0 10px 10px;
   float : left;
   margin: 10px 10px 10px 10px;
+  display: block;
+  flex-direction: column;
 }
 
 
 .card-body {
-  height: fit-content;
-  width: fit-content;
+  height: 300px;
+  width: 300px;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -39,7 +41,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  margin: 15px 10px 10px 10px
+  margin: 15px 40px ;
 }
 
 /* Hide the browser's default checkbox */

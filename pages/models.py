@@ -1,21 +1,12 @@
+
 from django.db import models
 # instalei pip3 install django-multiselectfield
 from multiselectfield import MultiSelectField
 
 # Create your models here.
-class Ficheiros(models.Model):
-    title = models.CharField(max_length=100)
-    author = models.CharField(max_length=100)
-    subject = models.CharField(max_length=100)
-    
-    resources = models.FileField(upload_to='resources/files')
 
 
-    def __str__(self):
-        return self.title
-
-class User(models.Model):
-    subjects_choices = (
+subjects_choices = (
             ('p1','Programação 1'),
             ('isd','Introdução aos Sistemas Digitais'),
             ('c1' ,'Cálculo 1'),
@@ -53,6 +44,28 @@ class User(models.Model):
             ('gpe' ,'Gestão de Projectos e Empreendorismo'),
             ('tese' ,'Dissertação'),
     )
-
+    
+    
+class User(models.Model):
     nmec = models.IntegerField()
-    subjects = MultiSelectField(choices=subjects_choices)
+    email = models.EmailField()
+    password = models.CharField(max_length=100)
+    password2 = models.CharField(max_length=100, blank=True)
+    subjects = MultiSelectField(choices=subjects_choices,blank=True)
+    
+
+    def __str__(self):
+        return str(self.nmec)
+
+class Ficheiros(models.Model):
+    title = models.CharField(max_length=100)
+    author = models.CharField(max_length=100)
+    subject = models.CharField(max_length=100)
+    
+    resources = models.FileField(upload_to='resources/files')
+
+
+    def __str__(self):
+        return self.title
+
+

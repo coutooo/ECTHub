@@ -6,13 +6,7 @@
   float : left;
   margin: 10px 10px 10px 10px;
   display: block;
-  flex-direction: column;
-}
-
-
-.card-body {
-  height: 300px;
-  width: 300px;
+  flex-direction: row;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -41,7 +35,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  margin: 15px 40px ;
+  margin: 15px 10px 10px 10px;
 }
 
 /* Hide the browser's default checkbox */

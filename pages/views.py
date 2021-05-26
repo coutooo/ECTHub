@@ -4,6 +4,8 @@ from django.core.files.storage import FileSystemStorage
 
 from .forms import *
 from .models import *
+from users.forms import *
+from django.contrib.auth.hashers import make_password
 
 subs = {
     "ano1" : {

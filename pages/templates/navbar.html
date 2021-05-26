@@ -15,6 +15,7 @@ body {
 .navbar {
   overflow: hidden;
   background-color: rgb(109, 107, 107);
+  margin: 0;
 }
 
 .navbar a {
@@ -26,6 +27,10 @@ body {
   text-decoration: none;
 }
 
+.navbar a:hover:not(.active) {
+  background-color: rgb(129, 129, 129);
+}
+
 .dropdown {
   float: left;
   overflow: hidden;
@@ -33,12 +38,11 @@ body {
 
 .dropdown .dropbtn {
   font-size: 16px;  
-  outline: none;
   color: white;
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
-  margin: 0;
+  display: inline-block;
 }
 
 /* .navbar a:hover, .dropdown:hover .dropbtn {
@@ -70,15 +74,21 @@ body {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+@media screen and (max-width: 600px) {
+  .navbar .justify-content-end, 
+  .navbar a .dropdown .dropdown-content a {float: none;}
+}
+
 </style>
 </head>
 <body>
 
-<div class="navbar">
+<ul class="navbar">
   <a class="nav-item nav-link" href="{% url 'home' %}">ECT Hub</a>
   <a class="nav-item nav-link" href="/calendar">Calendar</a>
   <div class="dropdown">
-    <button class="dropbtn">Resources<i class="fa fa-caret-down"></i></button>
+    <a class="dropbtn">Resources<i class="fa fa-caret-down"></i></a>
     <div class="dropdown-content">
       <a href="/years?year=1">Year 1</a>
       <a href="/years?year=2">Year 2</a>
@@ -96,7 +106,7 @@ body {
       <a class="nav-item nav-link" href="{% url 'register' %}">Sign Up</a>
     {% endif %}
   </ul>
-</div>
+</ul>
 
 </body>
 </html>

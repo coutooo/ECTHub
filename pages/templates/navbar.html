@@ -31,55 +31,48 @@ body {
   background-color: rgb(129, 129, 129);
 }
 
-.dropdown {
-  display: inline-block;
-}
-
 .dropbtn {
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
   cursor: pointer;
 }
 
-.dropdown .dropbtn {
-  font-size: 16px;  
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: absolute;
+  display: inline;
 }
 
-/* .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: inherit;
-} */
-
+/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 120px;
+  min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
 }
 
+/* Links inside the dropdown */
 .dropdown-content a {
-  float: none;
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  text-align: left;
 }
 
-.dropdown-content a:hover {
-  background-color: rgb(209, 209, 209);
-}
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
 
+/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-@media screen and (max-width: 600px) {
-  .navbar .justify-content-end, 
-  .navbar a .dropdown .dropdown-content a {float: none;}
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #bebebe;
 }
 
 </style>
@@ -91,14 +84,14 @@ body {
   <a class="nav-item nav-link" href="/calendar">Calendar</a>
   <div class="dropdown">
     <a class="dropbtn">Resources<i class="fa fa-caret-down"></i></a>
-      <div class="dropdown-content">
-        <a href="/years?year=1">Year 1</a>
-        <a href="/years?year=2">Year 2</a>
-        <a href="/years?year=3">Year 3</a>
-        <a href="/years?year=4">Year 4</a>
-        <a href="/years?year=5">Year 5</a>
-      </div>
-  </div> 
+    <div class="dropdown-content">
+      <a href="/years?year=1">Year 1</a>
+      <a href="/years?year=2">Year 2</a>
+      <a href="/years?year=3">Year 3</a>
+      <a href="/years?year=4">Year 4</a>
+      <a href="/years?year=5">Year 5</a>
+    </div>
+  </div>
   <ul class="justify-content-end">
     {% if user.is_authenticated %}
       <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>

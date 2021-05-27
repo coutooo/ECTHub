@@ -2,14 +2,17 @@
 {% block content %}
 
 <body>
+<form method="post">
+{% csrf_token %}
     <div class="row" style="display: flex; justify-content: center; margin-top: 100px;align-items: stretch;">
+
         <div class="col-lg-3 col-md-6 col-sm-6" >
             <div class="card" style="border-radius: 1em; background-color: rgb(236, 235, 235);">
                 <label class="container">
                     <h1 class="card-title">1º Semestre</h1>
                     {% for id, name in first_sem.items %}
                         <label class="container">
-                            <input type="checkbox">
+                            <input type="checkbox" name="subjects" value="{{ id }}" {% if id in selected %} checked {% endif %}>
                             <span class="checkmark"></span>
                             <a href="/resources?sub={{ id }}" style="text-decoration : none; color : #000000;">{{ name }}</a>
                         </label>
@@ -23,14 +26,24 @@
                     <h1 class="card-title">2º Semestre</h1>
                     {% for id, name in second_sem.items %}
                         <label class="container">
-                            <input type="checkbox">
+
+                            <input type="checkbox" name="subjects" value="{{ id }}" {% if id in selected %} checked {% endif %}>
                             <span class="checkmark"></span>
                             <a href="/resources?sub={{ id }}" style="text-decoration : none; color : #000000;">{{ name }}</a>
+
                         </label>
                     {% endfor %}
                 </label>
             </div>
         </div>
+
     </div>
+
+        <div  style="width:100px; margin:0 auto;">
+            <button type="submit" >
+              Submit Choices
+            </button>
+        </div>
+</form>
 </body>
 {% endblock %}

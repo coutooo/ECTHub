@@ -84,21 +84,50 @@ def getName(id):
 
 # Create your views here.
 def home_view(request, *args, **kwargs):
-    return render(request, "home.html",{})
+    current_user = request.user
+    nmec = current_user.username
+    sub = AsSubdject.objects.filter(user=nmec)
+    sub = [s.subject for s in sub]
+    subjects = {}
+    for s in sub:
+        subjects[s] = getName(s)
+    print(subjects)
+    params = {
+        'subjects': subjects
+    }
+    return render(request, "home.html",params)
     
 def calendar_view(request, *args, ** kwargs):
     return render(request, "calendar.html",{})
 
 def subjects(request, *args, ** kwargs):
     year = request.GET['year']
+    first = subs['ano' + year]['sem1']
+    second = subs['ano' + year]['sem2']
 
-    first = subs['ano'+ year]['sem1']
-    
-    second = subs['ano'+year]['sem2']
-    params = {"first_sem":first,
-            "second_sem" : second}
+    current_user = request.user
+    nmec = current_user.username
+    sub = AsSubdject.objects.filter(user=nmec)
+    sub = [s.subject for s in sub]
+    # AsSubdject.objects.filter(user=88753, subject='ihc').delete()
+    if request.method == 'POST':
+        selected_subjects = request.POST.getlist('subjects')
+        for s in selected_subjects:
+            print(s)
+            if s not in sub:
+                new_sub = AsSubdject(user=nmec, subject=s)
+                new_sub.save()
+                sub.append(s)
+        for s in sub:
+            if (s in first or s in second) and s not in selected_subjects:
+                AsSubdject.objects.get(user=nmec, subject=s).delete()
+                sub.remove(s)
 
-    
+    params = {'year': year,
+              "first_sem": first,
+              "second_sem": second,
+              "selected": sub}
+
     return render(request, "subjects3.html",params)
 
 def resources_list(request):

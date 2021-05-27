@@ -52,10 +52,16 @@ class User(models.Model):
     password = models.CharField(max_length=100)
     password2 = models.CharField(max_length=100, blank=True)
     subjects = MultiSelectField(choices=subjects_choices,blank=True)
-    
 
     def __str__(self):
         return str(self.nmec)
+
+class AsSubdject(models.Model):
+    user = models.IntegerField()
+    subject = models.CharField(max_length=4)
+
+    def __str__(self):
+        return str(self.user)+" "+self.subject
 
 class Ficheiros(models.Model):
     title = models.CharField(max_length=100)

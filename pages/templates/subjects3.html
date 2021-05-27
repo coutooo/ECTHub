@@ -38,9 +38,9 @@
         </div>
 
     </div>
-
+        
         <div style="display: flex; justify-content: center;align-items: stretch;">
-            <button class="btn btn-primary" type="submit" style="
+            <button class="btn btn-primary" type="submit" onclick="clicked()" style="
             cursor: pointer;
             border-radius: 1em;
             color: #fff;
@@ -57,4 +57,16 @@
         </div>
 </form>
 </body>
+
+<script type="text/javascript">
+    function clicked() {
+       if (confirm('Do you want to submit?')) {
+           yourformelement.submit();
+       } else {
+           return false;
+       }
+    }
+
+</script>
 {% endblock %}
+

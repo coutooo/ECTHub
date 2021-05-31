@@ -3,6 +3,9 @@ from django.db import models
 # instalei pip3 install django-multiselectfield
 from multiselectfield import MultiSelectField
 
+from django.utils import timezone
+
+import datetime
 # Create your models here.
 
 
@@ -69,6 +72,8 @@ class Ficheiros(models.Model):
     subject = models.CharField(max_length=100)
     
     resources = models.FileField(upload_to='resources/files')
+
+    date = models.DateTimeField(default=datetime.datetime.now(),blank=True)
 
 
     def __str__(self):

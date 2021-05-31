@@ -6,6 +6,7 @@ from .forms import *
 from .models import *
 from users.forms import *
 from django.contrib.auth.hashers import make_password
+import datetime
 
 subs = {
     "ano1" : {
@@ -131,7 +132,7 @@ def subjects(request, *args, ** kwargs):
               "first_sem": first,
               "second_sem": second,
               "selected": sub}
-
+    
     return render(request, "subjects3.html",params)
 
 def resources_list(request):

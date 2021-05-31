@@ -7,7 +7,17 @@
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4" style="font-size: larger;margin-bottom: 10%;">Login</legend>
-                {{ form|crispy }}
+                <div class="form-group">
+
+                    <label for="{{ form.username.id_for_label }}">Nmec:</label>
+                    {{ form.username }}
+                    {{ form.username.errors }}
+                </div>
+                <div class="form-group" style="padding-top: 10%;">
+                    <label for="{{ form.password.id_for_label }}">Password:</label>
+                    {{ form.password }}
+                    {{ form.password.errors }}
+                </div>
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit" style="

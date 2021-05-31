@@ -7,6 +7,7 @@
             <th>Subject</th>
             <th>Title</th>
             <th>Author</th>
+            <th>Date</th>
             <th>Download</th>
         </tr>
     </thead>
@@ -21,6 +22,7 @@
             <td>{{ file.subject }}</td>
             <td>{{ file.title }}</td>
             <td>{{ file.author }}</td>
+            <td>{{ file.date }}</td>
             <td>
                 <a href="{{ file.resources.url }}" class="btn btn-primary btn-sm" target="_blank">
                   <button>Download File</button>

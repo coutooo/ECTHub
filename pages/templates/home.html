@@ -2,23 +2,24 @@
 
 {% block content %}
 {% load static %}
-    <h1>Courses</h1>
+
+<h1>Courses</h1>
   <div class="row">
     {% if not subjects %}
-    <p style="font-family: Arial, Helvetica, sans-serif; font-size: small;margin-top: 5px;">Please choose your courses on Courses page.</p>
+      <p style="font-family: Arial, Helvetica, sans-serif; font-size: small;margin-top: 5px;">Please choose your courses on Courses page.</p>
     {% else %}
-    {% for id, name in subjects.items %}
-    <div class="col-lg-3 col-md-6 col-sm-6">
-        <a href="/resources?sub={{ id }}">
-          <div class="card" style="height: 300px;width: 300px;display: flex;flex-direction: column;text-align: center;border-radius: 1em">
-{#            <img class="responsive-img" src="{% static 'images/virtual.png' %}">#}
-            <div class="container">
-              <h4 class="card-title"><b>{{ name }}</b></h4>
+      {% for id, name in subjects.items %}
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <a href="/resources?sub={{ id }}">
+            <div class="card" style="height: 300px;width: 300px;display: flex;flex-direction: column;text-align: center;border-radius: 1em; background-color: rgb(243, 243, 243);">
+  {#            <img class="responsive-img" src="{% static 'images/virtual.png' %}">#}
+              <div class="container">
+                <h4 class="card-title"><b>{{ name }}</b></h4>
+              </div>
             </div>
-          </div>
-        </a>
-    </div>
-    {% endfor %}
+          </a>
+        </div>
+      {% endfor %}
     {% endif %}
   </div>
 {% endblock %}

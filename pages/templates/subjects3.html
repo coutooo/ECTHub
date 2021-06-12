@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<body>
 <form method="post">
 {% csrf_token %}
     <p style="font-family: Arial, Helvetica, sans-serif; font-size: small;margin-top: 50px;">Please select the subjects that you are registered or check the resources of each subject.</p>
@@ -26,11 +25,9 @@
                     <h1 class="card-title">2º Semestre</h1>
                     {% for id, name in second_sem.items %}
                         <label class="container">
-
                             <input type="checkbox" name="subjects" value="{{ id }}" {% if id in selected %} checked {% endif %}>
                             <span class="checkmark"></span>
                             <a href="/resources?sub={{ id }}" style="text-decoration : none; color : #000000;">{{ name }}</a>
-
                         </label>
                     {% endfor %}
                 </label>
@@ -38,25 +35,10 @@
         </div>
 
     </div>
-        
-        <div style="display: flex; justify-content: center;align-items: stretch;">
-            <button class="btn btn-primary" type="submit" onclick="clicked()" style="
-            cursor: pointer;
-            border-radius: 1em;
-            color: #fff;
-            background: linear-gradient(to right, #69b6fd, #298fb8);
-            border: 0;
-            padding-left: 40px;
-            padding-right: 40px;
-            padding-bottom: 10px;
-            padding-top: 10px;
-            margin-top: 5%;
-            font-size: 20px;" >
-              Submit Choices
-            </button>
+        <div class = "multi-button" style="display: flex; justify-content: center;align-items: stretch; margin-top: 40px;">
+            <button type="submit" onclick="clicked()">Submit Choices</button>
         </div>
 </form>
-</body>
 
 <script type="text/javascript">
     function clicked() {

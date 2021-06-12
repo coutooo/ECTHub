@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
- <table class="table" align="center">
+
+<h1>{{ sub }}</h1>
+<div class="multi-button" style="align-content: center; display: grid; justify-content: center; margin-bottom: 30px;">
+    <a href="upload?sub={{ id }} ">
+        <button>Upload File</button>
+    </a>
+</div>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for title" title="Type in" >
+
+<table id="myTable" class="table" align="center">
     <thead align="center">
         <tr>
             <th>Subject</th>
@@ -12,10 +22,6 @@
         </tr>
     </thead>
     <tbody align="center">
-        <h1>{{ sub }}</h1>
-        <p class="multi-button">
-            <a href="upload?sub={{ id }} " class="btn btn-primary"><button>Upload File</button></a>
-        </p>
         {% for file in files %}
         {% if file.subject == sub %}
         <tr>
@@ -25,12 +31,32 @@
             <td>{{ file.date }}</td>
             <td>
                 <a href="{{ file.resources.url }}" class="btn btn-primary btn-sm" target="_blank">
-                  <button>Download File</button>
+                    <button>Download File</button>
                 </a>
             </td>
         </tr>
         {% endif %}
         {% endfor %}
     </tbody>
- </table>
+</table>
+<script>
+function myFunction() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }      
+    }
+}
+</script>
 {% endblock %}

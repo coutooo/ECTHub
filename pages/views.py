@@ -95,6 +95,8 @@ def home_view(request, *args, **kwargs):
         for s in sub:
             subjects[s] = getName(s)
         print(subjects)
+    #if request.method == 'POST':
+
     params = {
         'subjects': subjects
     }

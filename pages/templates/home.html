@@ -10,10 +10,15 @@
     {% else %}
       {% for id, name in subjects.items %}
         <div class="col-lg-3 col-md-6 col-sm-6">
-          <a href="/resources?sub={{ id }}">
             <div class="card" style="height: 300px;width: 300px;display: flex;flex-direction: column;text-align: center;border-radius: 1em; background-color: rgb(243, 243, 243);">
   {#            <img class="responsive-img" src="{% static 'images/virtual.png' %}">#}
+              <div class="col" align="center"> 
+                <button type="button" class="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
               <div class="container">
+                <a href="/resources?sub={{ id }}" style="text-decoration : none; color : #2b4f5f;">
                 <h4 class="card-title"><b>{{ name }}</b></h4>
               </div>
             </div>

@@ -96,6 +96,7 @@ def home_view(request, *args, **kwargs):
             subjects[s] = getName(s)
         print(subjects)
     #if request.method == 'POST':
+    #    print("ola")
 
     params = {
         'subjects': subjects

@@ -127,6 +127,7 @@ table {
 	overflow: hidden;
 	box-shadow: 0 0 20px rgba(0,0,0,0.1);
   border-radius: 1em;
+  margin-top: 35px;
 }
 
 thead{
@@ -155,6 +156,7 @@ th {
   padding-bottom: 10px;
   padding-top: 10px;
   font-size: 20px;
+  margin-top: 35px;
 }
 
 button:hover{
@@ -168,3 +170,7 @@ button:active{
 }
 
 .close {border-radius: 40%;}
+
+.post img {
+  background: transparent;
+}

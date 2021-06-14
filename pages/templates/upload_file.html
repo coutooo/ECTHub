@@ -7,7 +7,7 @@
                 <h1>Upload Files</h1>
                 <form align="center" method="post" enctype="multipart/form-data" style="align-content: center; display: grid; justify-content: center;width: 400px;height: 500px;margin: 1em auto;border-radius: 1em;box-shadow: 0px 10px 20px 2px rgb(182, 203, 218);">
                 {% csrf_token %}
-                {{ form|crispy  }}
+                {{ form  }}
                 <button type="submit" class="btn btn-primary" style="margin-top: 30px; align-content: center;">Upload File</button>
         </div>
 {% endblock %}

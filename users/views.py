@@ -2,9 +2,12 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .forms import UserLoginForm, UserRegisterForm
+from .forms import UserRegisterForm
+from django.contrib.auth.forms import UserChangeForm
 
 from django.contrib.auth.hashers import make_password
+
+from pages.models import *
 
 # Create your views here.
 
@@ -35,6 +38,17 @@ def register(request):
 
 @login_required
 def profile(request):
-    print("couto")
-    print(make_password("couto"))  # how to hash
-    return render(request, 'users/profile.html')
+    #print("couto")
+    #print(make_password("couto"))  # how to hash
+    
+    nmec = request.user
+    nmec = nmec.username
+
+    sub = AsSubdject.objects.filter(user=nmec)
+    sub = [s.subject for s in sub]
+
+    print(sub)
+    params = { "class" : sub }
+    print(params)
+    
+    return render(request, 'users/profile.html',params)

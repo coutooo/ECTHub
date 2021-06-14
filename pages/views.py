@@ -130,6 +130,7 @@ def subjects(request, *args, ** kwargs):
                 if (s in first or s in second) and s not in selected_subjects:
                     AsSubdject.objects.get(user=nmec, subject=s).delete()
                     sub.remove(s)
+            return redirect('home')
 
     params = {'year': year,
               "first_sem": first,

@@ -2,6 +2,7 @@
 from django.db import models
 # instalei pip3 install django-multiselectfield
 from multiselectfield import MultiSelectField
+from django.contrib.auth.models import AbstractUser, UserManager
 
 from django.utils import timezone
 
@@ -49,12 +50,18 @@ subjects_choices = (
     )
     
     
-class User(models.Model):
-    nmec = models.IntegerField()
+class MyUser(AbstractUser):
+
+    nmec = models.IntegerField(unique=True)
     email = models.EmailField()
     password = models.CharField(max_length=100)
     password2 = models.CharField(max_length=100, blank=True)
-    subjects = MultiSelectField(choices=subjects_choices,blank=True)
+    subjects = MultiSelectField(choices=subjects_choices, blank=True)
+
+    objects = UserManager()
+    USERNAME_FIELD = 'nmec'
+    REQUIRED_FIELDS = []
+    EMAIL_FIELD = 'email'
 
     def __str__(self):
         return str(self.nmec)

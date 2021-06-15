@@ -2,12 +2,12 @@
 from django import forms
 from django.forms import HiddenInput,PasswordInput, widgets
 
-from pages.models import User
+from pages.models import MyUser
 
 
 class UserRegisterForm(forms.ModelForm):
     class Meta:
-        model = User
+        model = MyUser
         password = forms.CharField(widget=forms.PasswordInput)
         password2 = forms.CharField(widget=forms.PasswordInput)
         widgets = {
@@ -24,13 +24,13 @@ class UserRegisterForm(forms.ModelForm):
             ]
 class UserLoginForm(forms.ModelForm):
     class Meta:
-        model = User
+        model = MyUser
         password = forms.CharField(widget=forms.PasswordInput)
         widgets = {
             'password': forms.PasswordInput()
         }
         fields = [
-            'nmec',
+            'username',
             'password'
         ]
         

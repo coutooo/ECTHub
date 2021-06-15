@@ -156,3 +156,5 @@ LOGIN_REDIRECT_URL = 'home'
 
 LOGIN_URL = 'login'
 
+AUTH_USER_MODEL = 'pages.MyUser'
+

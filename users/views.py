@@ -26,9 +26,9 @@ def register(request):
                 messages.error(request, f'Student {nmec}, passwords must have at least 6 characters!')
                 return render(request, 'users/register.html', {'form': form})
             else:
-                form.save()
-                user = User.objects.create_user(nmec,email, password)
-                user.save()
+                # form.save()
+                u = MyUser.objects.create_user(username=nmec, nmec=nmec, email=email, password=password)
+                u.save()
                 messages.success(request, f'Student {nmec}! You are now able to log in!')
                 return redirect('login')
     else:

@@ -94,9 +94,11 @@ def home_view(request, *args, **kwargs):
 
         for s in sub:
             subjects[s] = getName(s)
-        print(subjects)
-    #if request.method == 'POST':
-    #    print("ola")
+        if request.method == 'POST':
+            subject = request.POST.get("del")
+            AsSubdject.objects.get(user=nmec,  subject=subject).delete()
+            subjects.pop(subject)
+
 
     params = {
         'subjects': subjects

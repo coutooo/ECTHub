@@ -27,7 +27,9 @@ table {
   </tr>
 {% for id in class %}
     <tr>
-        <td>{{ id }}</td>
+        <td>
+          <a href="/resources?sub={{ id }}" style="text-decoration : none; color : #000000;">{{ id }} 
+        </td>
         <td><div contenteditable>-</div></td>
     </tr>
 {% endfor %}

@@ -1,0 +1,4 @@
+p1/APU/CAM {"Timestamp": 1623175805.251057, "OBU_ID": "666", "class": 10, "latitude": 41.6341235, "longitude": -8.6599443, "altitude": 0.19, "heading": 360.1, "speed": 0.0, "RSSI": -84}
+p1/APU/CAM {"Timestamp": 1623175805.251057, "OBU_ID": "666", "class": 10, "latitude": 41.6341235, "longitude": -8.6599443, "altitude": 0.19, "heading": 360.1, "speed": 0.0, "RSSI": -84}
+p1/APU/CAM {"Timestamp": 1623175805.251057, "OBU_ID": "666", "class": 10, "latitude": 41.6341235, "longitude": -8.6599443, "altitude": 0.19, "heading": 360.1, "speed": 0.0, "RSSI": -84}
+p1/APU/CAM {"Timestamp": 1623175805.251057, "OBU_ID": "666", "class": 10, "latitude": 41.6341235, "longitude": -8.6599443, "altitude": 0.19, "heading": 360.1, "speed": 0.0, "RSSI": -84}

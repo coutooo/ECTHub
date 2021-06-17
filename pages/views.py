@@ -137,7 +137,8 @@ def subjects(request, *args, ** kwargs):
     params = {'year': year,
               "first_sem": first,
               "second_sem": second,
-              "selected": sub}
+              "selected": sub,
+              "logedin": nmec}
     
     return render(request, "subjects3.html",params)
 
